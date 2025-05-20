@@ -2,78 +2,74 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dashboard - Sistema Inmobiliario</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex bg-gray-100 min-h-screen">
 
   <!-- Sidebar -->
-  <aside class="w-64 h-screen bg-gray-800 text-white p-4 hidden md:block">
-    <h2 class="text-2xl font-bold mb-6 text-center">Inmobiliaria</h2>
-    <nav class="space-y-2">
-      <a href="dashboard.html" class="block py-2 px-4 hover:bg-gray-700 rounded">🏠 Inicio</a>
-      <a href="clientes.html" class="block py-2 px-4 hover:bg-gray-700 rounded">👤 Clientes</a>
-      <a href="departamentos.html" class="block py-2 px-4 hover:bg-gray-700 rounded">🏢 Departamentos</a>
-      <a href="cotizaciones.html" class="block py-2 px-4 hover:bg-gray-700 rounded">💬 Cotizaciones</a>
-      <a href="reservas.html" class="block py-2 px-4 hover:bg-gray-700 rounded">📆 Reservas</a>
-      <a href="ventas.html" class="block py-2 px-4 hover:bg-gray-700 rounded">💰 Ventas</a>
-      <a href="reportes.html" class="block py-2 px-4 hover:bg-gray-700 rounded">📊 Reportes</a>
-      <a href="perfil.html" class="block py-2 px-4 hover:bg-gray-700 rounded">👤 Perfil</a>
-      <a href="login.html" class="block py-2 px-4 bg-red-500 hover:bg-red-600 rounded mt-4">🔓 Cerrar sesión</a>
+  <aside class="w-64 h-screen bg-gray-800 text-white p-6 hidden md:block">
+    <h2 class="text-3xl font-bold mb-8 text-center">Inmobiliaria</h2>
+    <nav class="space-y-3">
+      <a href="index.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">🏠 Inicio</a>
+      <a href="clientes.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">👤 Clientes</a>
+      <a href="departamentos.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">🏢 Departamentos</a>
+      <a href="cotizaciones.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">💬 Cotizaciones</a>
+      <a href="reservas.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">📆 Reservas</a>
+      <a href="ventas.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">💰 Ventas</a>
+      <a href="reportes.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">📊 Reportes</a>
+      <a href="perfil.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">👤 Perfil</a>
+      <a href="login.html" class="block py-3 px-4 bg-red-600 hover:bg-red-700 rounded mt-6 transition">🔓 Cerrar sesión</a>
     </nav>
   </aside>
 
-  <!-- Main Content -->
-  <div class="flex-1 flex flex-col">
+  <!-- Main content area -->
+  <div class="flex-1 flex flex-col min-h-screen">
 
-    <!-- Top Bar -->
-    <header class="bg-white p-4 shadow flex justify-between items-center">
+    <!-- Navbar / Top bar -->
+    <header class="bg-white shadow p-4 flex justify-between items-center">
       <h1 class="text-xl font-bold text-gray-800">Panel de Control</h1>
-      <div class="flex items-center gap-4">
-        <!-- Input de búsqueda con ícono -->
+      <div class="flex items-center gap-6">
+        <!-- Buscador -->
         <div class="relative">
           <input type="text" placeholder="Buscar..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          <div class="absolute left-3 top-2.5 text-gray-500">
-            🔍
-          </div>
+          <div class="absolute left-3 top-2.5 text-gray-400 select-none">🔍</div>
         </div>
         <!-- Usuario -->
-        <span class="text-sm text-gray-600">Usuario: <strong>admin@example.com</strong></span>
+        <span class="text-gray-600 text-sm">Usuario: <strong>admin@example.com</strong></span>
       </div>
     </header>
 
     <!-- Contenido Principal -->
-    <main class="p-6 space-y-6">
-      <!-- Tarjetas Resumen -->
-      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-xl shadow p-5">
+    <main class="p-8 flex-1 overflow-auto space-y-8">
+
+      <!-- Tarjetas resumen -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow">
           <h3 class="text-lg font-semibold text-gray-700">Clientes Registrados</h3>
-          <p class="text-2xl font-bold text-blue-600 mt-2">120</p>
+          <p class="text-3xl font-bold text-blue-600 mt-3">120</p>
         </div>
-
-        <!-- Card 2 -->
-        <div class="bg-white rounded-xl shadow p-5">
+        <div class="bg-white p-6 rounded-xl shadow">
           <h3 class="text-lg font-semibold text-gray-700">Departamentos Vendidos</h3>
-          <p class="text-2xl font-bold text-green-600 mt-2">45</p>
+          <p class="text-3xl font-bold text-green-600 mt-3">45</p>
         </div>
-
-        <!-- Card 3 -->
-        <div class="bg-white rounded-xl shadow p-5">
+        <div class="bg-white p-6 rounded-xl shadow">
           <h3 class="text-lg font-semibold text-gray-700">Ganancias Totales</h3>
-          <p class="text-2xl font-bold text-emerald-600 mt-2">S/ 320,000</p>
+          <p class="text-3xl font-bold text-emerald-600 mt-3">S/ 320,000</p>
         </div>
       </section>
 
-      <!-- Bienvenida -->
-      <section class="bg-white rounded-xl shadow p-6">
-        <h2 class="text-xl font-bold mb-4">Bienvenido al Sistema</h2>
-        <p class="text-gray-600">
+      <!-- Mensaje de bienvenida -->
+      <section class="bg-white p-6 rounded-xl shadow">
+        <h2 class="text-2xl font-bold mb-4">Bienvenido al Sistema</h2>
+        <p class="text-gray-700 leading-relaxed">
           Este es tu panel principal. Desde aquí puedes gestionar a los clientes, registrar nuevas ventas y administrar los departamentos disponibles.
         </p>
       </section>
+
     </main>
   </div>
+
 </body>
 </html>

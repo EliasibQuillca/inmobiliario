@@ -1,2 +1,97 @@
-<h2>Gestión de Ventas</h2>
-<p>Listado de departamentos, cotizaciones, historial de reservas.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ventas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+     <aside class="w-64 h-screen bg-gray-800 text-white p-4">
+    <h2 class="text-2xl font-bold mb-6">Inmobiliaria</h2>
+    <nav class="space-y-2">
+      <a href="dashboard.html" class="block py-2 px-4 hover:bg-gray-700 rounded">🏠 Inicio</a>
+      <a href="clientes.html" class="block py-2 px-4 hover:bg-gray-700 rounded">👤 Clientes</a>
+      <a href="departamentos.html" class="block py-2 px-4 bg-gray-700 rounded">🏢 Departamentos</a>
+      <a href="cotizaciones.html" class="block py-2 px-4 hover:bg-gray-700 rounded">💬 Cotizaciones</a>
+      <a href="reservas.html" class="block py-2 px-4 hover:bg-gray-700 rounded">📆 Reservas</a>
+      <a href="ventas.html" class="block py-2 px-4 hover:bg-gray-700 rounded">💰 Ventas</a>
+      <a href="reportes.html" class="block py-2 px-4 hover:bg-gray-700 rounded">📊 Reportes</a>
+      <a href="perfil.html" class="block py-2 px-4 hover:bg-gray-700 rounded">👤 Perfil</a>
+      <a href="login.html" class="block py-2 px-4 hover:bg-red-500 rounded mt-4">🔓 Cerrar sesión</a>
+    </nav>
+  </aside>
+  
+  <!-- Encabezado -->
+  <header class="bg-blue-800 text-white p-4 shadow">
+    <h1 class="text-2xl font-semibold">Sistema Inmobiliario - Ventas</h1>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="flex-grow p-6">
+    <section class="bg-white shadow-md rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">Registro de Ventas</h2>
+
+      <!-- Formulario para nueva venta -->
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Cliente</label>
+          <input type="text" placeholder="Nombre del cliente" class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Departamento vendido</label>
+          <input type="text" placeholder="Código o nombre del departamento" class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Fecha de venta</label>
+          <input type="date" class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Monto total</label>
+          <input type="number" placeholder="S/. 0.00" class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2" />
+        </div>
+        <div class="md:col-span-2 flex justify-end mt-4">
+          <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow">Registrar Venta</button>
+        </div>
+      </form>
+
+      <!-- Tabla de ventas registradas -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200 text-sm">
+          <thead class="bg-green-600 text-white">
+            <tr>
+              <th class="px-4 py-2 text-left">#</th>
+              <th class="px-4 py-2 text-left">Cliente</th>
+              <th class="px-4 py-2 text-left">Departamento</th>
+              <th class="px-4 py-2 text-left">Fecha</th>
+              <th class="px-4 py-2 text-left">Monto</th>
+              <th class="px-4 py-2 text-left">Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-100">
+            <tr>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">María López</td>
+              <td class="px-4 py-2">Depa A3</td>
+              <td class="px-4 py-2">2025-05-20</td>
+              <td class="px-4 py-2">S/. 150,000</td>
+              <td class="px-4 py-2">
+                <button class="text-blue-600 hover:underline">Ver</button> |
+                <button class="text-red-600 hover:underline">Eliminar</button>
+              </td>
+            </tr>
+            <!-- Más filas aquí -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="bg-gray-200 text-center text-sm text-gray-600 p-4">
+    © 2025 Sistema Inmobiliario - Proyecto Profesional
+  </footer>
+
+</body>
+</html>
