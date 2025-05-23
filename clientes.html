@@ -3,62 +3,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clientes - Sistema Inmobiliaria</title>
+  <title>Nombre de la Página - Sistema Inmobiliario</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+    .card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px 0 rgba(60,60,60,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 32px 0 rgba(60,60,60,0.12);
+    }
+    .active-link {
+      color: #2563eb;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 flex">
- 
-  <!-- Menú lateral -->
-  <div class="w-64 h-screen bg-gray-800 text-white p-4">
-    <h2 class="text-2xl font-bold mb-6">Inmobiliaria</h2>
-    <nav class="space-y-2">
-      <a href="dashboard.html" class="block py-2 px-4 hover:bg-gray-700 rounded">🏠 Inicio</a>
-      <a href="clientes.html" class="block py-2 px-4 bg-gray-700 rounded">👤 Clientes</a>
-      <a href="departamentos.html" class="block py-2 px-4 hover:bg-gray-700 rounded">🏢 Departamentos</a>
-      <a href="cotizaciones.html" class="block py-2 px-4 hover:bg-gray-700 rounded">💬 Cotizaciones</a>
-      <a href="reservas.html" class="block py-2 px-4 hover:bg-gray-700 rounded">📆 Reservas</a>
-      <a href="ventas.html" class="block py-2 px-4 hover:bg-gray-700 rounded">💰 Ventas</a>
-      <a href="reportes.html" class="block py-2 px-4 hover:bg-gray-700 rounded">📊 Reportes</a>
-      <a href="perfil.html" class="block py-2 px-4 hover:bg-gray-700 rounded">👤 Perfil</a>
-      <a href="login.html" class="block py-2 px-4 hover:bg-red-500 rounded mt-4">🔓 Cerrar sesión</a>
-    </nav>
-  </div>
+<body class="bg-gray-100 min-h-screen">
 
-  <!-- Contenido principal -->
-  <main class="flex-1 p-8">
-    <h1 class="text-3xl font-bold mb-6">Gestión de Clientes</h1>
+  <!-- Navbar superior -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="img/logo.ico" class="w-8 h-8" alt="Logo">
+        <span class="font-bold text-2xl text-gray-800">Inmobiliaria</span>
+      </div>
+      <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <a href="index.html" class="hover:text-gray-900">Inicio</a>
+        <a href="#" class="hover:text-gray-900">Nosotros</a>
+        <a href="vistapublica.html" class="hover:text-gray-900">Propiedades</a>
+        <a href="#" class="hover:text-gray-900">Contacto</a>
+        <a href="clientes.html" class="hover:text-gray-900">Clientes</a>
+        <a href="departamentos.html" class="hover:text-gray-900">Departamentos</a>
+        <a href="cotizaciones.html" class="hover:text-gray-900">Cotizaciones</a>
+        <a href="reservas.html" class="hover:text-gray-900">Reservas</a>
+        <a href="ventas.html" class="hover:text-gray-900">Ventas</a>
+        <a href="reportes.html" class="hover:text-gray-900">Reportes</a>
+      </nav>
+      <div class="flex space-x-4">
+        <a href="#" class="btn-outline">Regístrate</a>
+        <a href="login.html" class="btn-main">Iniciar sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="max-w-6xl mx-auto p-8 flex-1 overflow-auto space-y-8">
+    <header class="flex flex-col sm:flex-row justify-between items-center mb-8">
+      <h1 class="text-2xl font-bold text-gray-800 mb-4 sm:mb-0">Gestión de Clientes</h1>
+      <button id="btnNuevoCliente" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg shadow transition text-lg">
+        + Nuevo Cliente
+      </button>
+    </header>
+
+    <!-- Tarjetas resumen -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div class="card p-6 flex flex-col items-center">
+        <i class="fas fa-users text-4xl text-blue-600 mb-3"></i>
+        <h3 class="text-lg font-semibold text-gray-700 mb-1">Total Clientes</h3>
+        <p class="text-3xl font-bold text-blue-700">120</p>
+      </div>
+      <div class="card p-6 flex flex-col items-center">
+        <i class="fas fa-user-plus text-4xl text-green-600 mb-3"></i>
+        <h3 class="text-lg font-semibold text-gray-700 mb-1">Nuevos este mes</h3>
+        <p class="text-3xl font-bold text-green-700">8</p>
+      </div>
+      <div class="card p-6 flex flex-col items-center">
+        <i class="fas fa-envelope text-4xl text-yellow-500 mb-3"></i>
+        <h3 class="text-lg font-semibold text-gray-700 mb-1">Contactados</h3>
+        <p class="text-3xl font-bold text-yellow-600">45</p>
+      </div>
+    </section>
 
     <!-- Tabla de clientes -->
-    <table class="min-w-full bg-white shadow-md rounded overflow-hidden">
-      <thead class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-        <tr>
-          <th class="py-3 px-6 text-left">ID</th>
-          <th class="py-3 px-6 text-left">Nombre</th>
-          <th class="py-3 px-6 text-left">Correo</th>
-          <th class="py-3 px-6 text-left">Teléfono</th>
-          <th class="py-3 px-6 text-left">Acciones</th>
-        </tr>
-      </thead>
-      <tbody class="text-gray-600 text-sm">
-        <tr class="border-b border-gray-200 hover:bg-gray-100">
-          <td class="py-3 px-6">1</td>
-          <td class="py-3 px-6">Juan Pérez</td>
-          <td class="py-3 px-6">juan.perez@example.com</td>
-          <td class="py-3 px-6">987654321</td>
-          <td class="py-3 px-6">
-            <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Editar</button>
-            <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Eliminar</button>
-          </td>
-        </tr>
-        <!-- Más filas ejemplo -->
-      </tbody>
-    </table>
-
-    <!-- Botón para agregar cliente -->
-    <button class="mt-6 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
-      + Nuevo Cliente
-    </button>
+    <section class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-bold mb-4">Listado de Clientes</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-lg">
+          <thead class="bg-gray-200 text-gray-600 uppercase text-sm">
+            <tr>
+              <th class="py-3 px-4 text-left">#</th>
+              <th class="py-3 px-4 text-left">Nombre</th>
+              <th class="py-3 px-4 text-left">Correo</th>
+              <th class="py-3 px-4 text-left">Teléfono</th>
+              <th class="py-3 px-4 text-left">Estado</th>
+              <th class="py-3 px-4 text-left">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="clientesBody" class="text-gray-700">
+            <tr>
+              <td class="py-3 px-4">1</td>
+              <td class="py-3 px-4">Juan Pérez</td>
+              <td class="py-3 px-4">juanperez@email.com</td>
+              <td class="py-3 px-4">987654321</td>
+              <td class="py-3 px-4"><span class="inline-block px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Activo</span></td>
+              <td class="py-3 px-4 flex gap-2">
+                <button class="editar-cliente bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition">Editar</button>
+                <button class="eliminar-cliente bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">Eliminar</button>
+              </td>
+            </tr>
+            <!-- Más filas ejemplo -->
+          </tbody>
+        </table>
+      </div>
+    </section>
   </main>
 
+  <!-- Modal para agregar/editar cliente -->
+  <div id="modalCliente" class="fixed inset-0 hidden items-center justify-center z-50 bg-black bg-opacity-40">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8 relative">
+      <button id="cerrarModalCliente" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 id="modalTituloCliente" class="text-xl font-bold mb-4">Nuevo Cliente</h2>
+      <form id="formCliente" autocomplete="off">
+        <input type="hidden" id="clienteId" name="clienteId" />
+        <div class="mb-4">
+          <label for="nombreCliente" class="block text-gray-700 mb-1">Nombre</label>
+          <input type="text" id="nombreCliente" name="nombreCliente" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="mb-4">
+          <label for="correoCliente" class="block text-gray-700 mb-1">Correo</label>
+          <input type="email" id="correoCliente" name="correoCliente" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="mb-4">
+          <label for="telefonoCliente" class="block text-gray-700 mb-1">Teléfono</label>
+          <input type="text" id="telefonoCliente" name="telefonoCliente" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="mb-4">
+          <label for="estadoCliente" class="block text-gray-700 mb-1">Estado</label>
+          <select id="estadoCliente" name="estadoCliente" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition font-semibold">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Modal logic
+    const modalCliente = document.getElementById('modalCliente');
+    const btnNuevoCliente = document.getElementById('btnNuevoCliente');
+    const cerrarModalCliente = document.getElementById('cerrarModalCliente');
+    const formCliente = document.getElementById('formCliente');
+    const clientesBody = document.getElementById('clientesBody');
+    let editandoCliente = false;
+    let editRowCliente = null;
+
+    btnNuevoCliente.onclick = () => {
+      formCliente.reset();
+      document.getElementById('modalTituloCliente').textContent = 'Nuevo Cliente';
+      document.getElementById('clienteId').value = '';
+      modalCliente.classList.remove('hidden');
+      modalCliente.classList.add('flex');
+      editandoCliente = false;
+    };
+
+    cerrarModalCliente.onclick = () => {
+      modalCliente.classList.add('hidden');
+      modalCliente.classList.remove('flex');
+    };
+
+    window.onclick = (e) => {
+      if (e.target === modalCliente) {
+        modalCliente.classList.add('hidden');
+        modalCliente.classList.remove('flex');
+      }
+    };
+
+    // Agregar o editar cliente
+    formCliente.onsubmit = function(e) {
+      e.preventDefault();
+      const nombre = formCliente.nombreCliente.value.trim();
+      const correo = formCliente.correoCliente.value.trim();
+      const telefono = formCliente.telefonoCliente.value.trim();
+      const estado = formCliente.estadoCliente.value.trim();
+      if (!nombre || !correo || !telefono || !estado) return;
+
+      let estadoBadge = '';
+      if (estado === 'Activo') {
+        estadoBadge = '<span class="inline-block px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Activo</span>';
+      } else {
+        estadoBadge = '<span class="inline-block px-2 py-1 rounded bg-gray-200 text-gray-700 text-xs">Inactivo</span>';
+      }
+
+      if (editandoCliente && editRowCliente) {
+        editRowCliente.children[1].textContent = nombre;
+        editRowCliente.children[2].textContent = correo;
+        editRowCliente.children[3].textContent = telefono;
+        editRowCliente.children[4].innerHTML = estadoBadge;
+      } else {
+        const id = clientesBody.children.length + 1;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="py-3 px-4">${id}</td>
+          <td class="py-3 px-4">${nombre}</td>
+          <td class="py-3 px-4">${correo}</td>
+          <td class="py-3 px-4">${telefono}</td>
+          <td class="py-3 px-4">${estadoBadge}</td>
+          <td class="py-3 px-4 flex gap-2">
+            <button class="editar-cliente bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition">Editar</button>
+            <button class="eliminar-cliente bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">Eliminar</button>
+          </td>
+        `;
+        clientesBody.appendChild(row);
+      }
+      modalCliente.classList.add('hidden');
+      modalCliente.classList.remove('flex');
+      formCliente.reset();
+    };
+
+    // Delegación de eventos para editar/eliminar
+    clientesBody.onclick = function(e) {
+      if (e.target.classList.contains('editar-cliente')) {
+        editandoCliente = true;
+        editRowCliente = e.target.closest('tr');
+        document.getElementById('modalTituloCliente').textContent = 'Editar Cliente';
+        document.getElementById('clienteId').value = editRowCliente.children[0].textContent;
+        formCliente.nombreCliente.value = editRowCliente.children[1].textContent;
+        formCliente.correoCliente.value = editRowCliente.children[2].textContent;
+        formCliente.telefonoCliente.value = editRowCliente.children[3].textContent;
+        formCliente.estadoCliente.value = editRowCliente.children[4].textContent.trim();
+        modalCliente.classList.remove('hidden');
+        modalCliente.classList.add('flex');
+      }
+      if (e.target.classList.contains('eliminar-cliente')) {
+        if (confirm('¿Seguro que deseas eliminar este cliente?')) {
+          e.target.closest('tr').remove();
+        }
+      }
+    };
+  </script>
+  <script src="https://kit.fontawesome.com/4b8b59b5b6.js" crossorigin="anonymous"></script>
 </body>
 </html>

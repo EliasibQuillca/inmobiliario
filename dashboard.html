@@ -3,16 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard - Sistema Inmobiliario</title>
+  <title>Nombre de la Página - Sistema Inmobiliario</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+    .active-link { background-color: #2563eb !important; color: #fff !important; }
+  </style>
 </head>
 <body class="flex bg-gray-100 min-h-screen">
 
   <!-- Sidebar -->
-  <aside class="w-64 h-screen bg-gray-800 text-white p-6 hidden md:block">
+  <aside class="w-64 h-screen bg-gray-800 text-white p-6 flex flex-col">
     <h2 class="text-3xl font-bold mb-8 text-center">Inmobiliaria</h2>
-    <nav class="space-y-3">
-      <a href="index.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">🏠 Inicio</a>
+    <nav class="space-y-3 flex-1">
+      <a href="dashboard.html" class="block py-3 px-4 rounded active-link transition">🏠 Inicio</a>
       <a href="clientes.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">👤 Clientes</a>
       <a href="departamentos.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">🏢 Departamentos</a>
       <a href="cotizaciones.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">💬 Cotizaciones</a>
@@ -20,7 +26,7 @@
       <a href="ventas.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">💰 Ventas</a>
       <a href="reportes.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">📊 Reportes</a>
       <a href="perfil.html" class="block py-3 px-4 rounded hover:bg-gray-700 transition">👤 Perfil</a>
-      <a href="login.html" class="block py-3 px-4 bg-red-600 hover:bg-red-700 rounded mt-6 transition">🔓 Cerrar sesión</a>
+      <a href="login.html" class="block py-3 px-4 bg-red-600 hover:bg-red-700 rounded mt-6 transition text-center">🔓 Cerrar sesión</a>
     </nav>
   </aside>
 
@@ -46,15 +52,15 @@
 
       <!-- Tarjetas resumen -->
       <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-xl shadow">
+        <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition-transform">
           <h3 class="text-lg font-semibold text-gray-700">Clientes Registrados</h3>
           <p class="text-3xl font-bold text-blue-600 mt-3">120</p>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow">
+        <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition-transform">
           <h3 class="text-lg font-semibold text-gray-700">Departamentos Vendidos</h3>
           <p class="text-3xl font-bold text-green-600 mt-3">45</p>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow">
+        <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition-transform">
           <h3 class="text-lg font-semibold text-gray-700">Ganancias Totales</h3>
           <p class="text-3xl font-bold text-emerald-600 mt-3">S/ 320,000</p>
         </div>
@@ -68,8 +74,45 @@
         </p>
       </section>
 
+      <!-- Gráfica de ejemplo -->
+      <section class="bg-white p-6 rounded-xl shadow">
+        <h2 class="text-xl font-bold mb-4">Resumen de Ventas (Demo)</h2>
+        <canvas id="ventasChart" height="80"></canvas>
+      </section>
+
     </main>
   </div>
 
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Demo chart
+    const ctx = document.getElementById('ventasChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Ventas',
+          data: [12, 19, 8, 15, 22, 18],
+          borderColor: '#2563eb',
+          backgroundColor: 'rgba(37,99,235,0.1)',
+          tension: 0.4,
+          fill: true,
+          pointRadius: 5,
+          pointBackgroundColor: '#2563eb'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
 </body>
 </html>

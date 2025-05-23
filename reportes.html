@@ -2,95 +2,61 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reportes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nombre de la Página - Sistema Inmobiliario</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
+<body class="bg-gray-100 min-h-screen">
 
- <!-- Menú lateral -->
- <div class="w-64 h-screen bg-gray-800 text-white p-4">
-  <h2 class="text-2xl font-bold mb-6">Inmobiliaria</h2>
-  <nav class="space-y-2">
-    <a href="dashboard.html" class="block py-2 px-4 hover:bg-gray-700 rounded">🏠 Inicio</a>
-    <a href="clientes.html" class="block py-2 px-4 bg-gray-700 rounded">👤 Clientes</a>
-    <a href="departamentos.html" class="block py-2 px-4 hover:bg-gray-700 rounded">🏢 Departamentos</a>
-    <a href="cotizaciones.html" class="block py-2 px-4 hover:bg-gray-700 rounded">💬 Cotizaciones</a>
-    <a href="reservas.html" class="block py-2 px-4 hover:bg-gray-700 rounded">📆 Reservas</a>
-    <a href="ventas.html" class="block py-2 px-4 hover:bg-gray-700 rounded">💰 Ventas</a>
-    <a href="reportes.html" class="block py-2 px-4 hover:bg-gray-700 rounded">📊 Reportes</a>
-    <a href="perfil.html" class="block py-2 px-4 hover:bg-gray-700 rounded">👤 Perfil</a>
-    <a href="login.html" class="block py-2 px-4 hover:bg-red-500 rounded mt-4">🔓 Cerrar sesión</a>
-  </nav>
-</div>
-  
-  <!-- Encabezado -->
-  <header class="bg-blue-800 text-white p-4 shadow">
-    <h1 class="text-2xl font-semibold">Sistema Inmobiliario - Reportes</h1>
+  <!-- Navbar superior -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="img/logo.ico" class="w-8 h-8" alt="Logo">
+        <span class="font-bold text-2xl text-gray-800">Inmobiliaria</span>
+      </div>
+      <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <a href="index.html" class="hover:text-gray-900">Inicio</a>
+        <a href="#" class="hover:text-gray-900">Nosotros</a>
+        <a href="vistapublica.html" class="hover:text-gray-900">Propiedades</a>
+        <a href="#" class="hover:text-gray-900">Contacto</a>
+        <a href="clientes.html" class="hover:text-gray-900">Clientes</a>
+        <a href="departamentos.html" class="hover:text-gray-900">Departamentos</a>
+        <a href="cotizaciones.html" class="hover:text-gray-900">Cotizaciones</a>
+        <a href="reservas.html" class="hover:text-gray-900">Reservas</a>
+        <a href="ventas.html" class="hover:text-gray-900">Ventas</a>
+        <a href="reportes.html" class="hover:text-gray-900">Reportes</a>
+      </nav>
+      <div class="flex space-x-4">
+        <a href="#" class="btn-outline">Regístrate</a>
+        <a href="login.html" class="btn-main">Iniciar sesión</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Contenido principal -->
-  <main class="flex-grow p-6 space-y-6">
-
-    <!-- Reporte Resumen -->
-    <section class="bg-white p-6 rounded shadow-md">
-      <h2 class="text-xl font-semibold mb-4">Resumen General</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-green-100 text-green-800 p-4 rounded shadow">
-          <h3 class="text-lg font-bold">Ventas Totales</h3>
-          <p class="text-2xl mt-2">S/. 850,000</p>
+  <!-- Contenido Principal -->
+  <main class="max-w-6xl mx-auto p-8 flex-1 overflow-auto space-y-8">
+    <h1 class="text-2xl font-bold text-gray-800 mb-8">Reportes y Estadísticas</h1>
+    <section class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-xl font-bold mb-4">Resumen de Actividad</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-100 p-6 rounded-lg text-center">
+          <div class="text-3xl font-bold text-blue-700 mb-2">120</div>
+          <div class="text-gray-700">Clientes</div>
         </div>
-        <div class="bg-blue-100 text-blue-800 p-4 rounded shadow">
-          <h3 class="text-lg font-bold">Clientes Registrados</h3>
-          <p class="text-2xl mt-2">35</p>
+        <div class="bg-gray-100 p-6 rounded-lg text-center">
+          <div class="text-3xl font-bold text-green-700 mb-2">35</div>
+          <div class="text-gray-700">Ventas</div>
         </div>
-        <div class="bg-yellow-100 text-yellow-800 p-4 rounded shadow">
-          <h3 class="text-lg font-bold">Departamentos Vendidos</h3>
-          <p class="text-2xl mt-2">28</p>
+        <div class="bg-gray-100 p-6 rounded-lg text-center">
+          <div class="text-3xl font-bold text-yellow-600 mb-2">8</div>
+          <div class="text-gray-700">Reservas</div>
         </div>
       </div>
     </section>
-
-    <!-- Reporte por Mes -->
-    <section class="bg-white p-6 rounded shadow-md">
-      <h2 class="text-xl font-semibold mb-4">Ventas por Mes</h2>
-      <div class="overflow-x-auto">
-        <table class="min-w-full text-sm divide-y divide-gray-200">
-          <thead class="bg-blue-700 text-white">
-            <tr>
-              <th class="px-4 py-2 text-left">Mes</th>
-              <th class="px-4 py-2 text-left">Cantidad de Ventas</th>
-              <th class="px-4 py-2 text-left">Monto Total</th>
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-100">
-            <tr>
-              <td class="px-4 py-2">Enero</td>
-              <td class="px-4 py-2">5</td>
-              <td class="px-4 py-2">S/. 150,000</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2">Febrero</td>
-              <td class="px-4 py-2">3</td>
-              <td class="px-4 py-2">S/. 90,000</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2">Marzo</td>
-              <td class="px-4 py-2">8</td>
-              <td class="px-4 py-2">S/. 240,000</td>
-            </tr>
-            <!-- Puedes agregar más meses -->
-          </tbody>
-        </table>
-      </div>
-    </section>
-
+    <!-- Puedes agregar más secciones de gráficos o tablas aquí -->
   </main>
-
-  <!-- Pie de página -->
-  <footer class="bg-gray-200 text-center text-sm text-gray-600 p-4">
-    © 2025 Sistema Inmobiliario - Proyecto Profesional
-  </footer>
-
 </body>
 </html>

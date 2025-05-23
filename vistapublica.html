@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nombre de la Página - Sistema Inmobiliario</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <style>
+    body {
+      background: #f4f4f5;
+      font-family: 'Roboto', sans-serif;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px 0 rgba(60,60,60,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 32px 0 rgba(60,60,60,0.12);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <img src="img/logo.ico" class="w-8 h-8" alt="Logo">
+        <span class="font-bold text-2xl text-gray-800">Inmobiliaria</span>
+      </a>
+      <a href="login.html" class="btn-main">Iniciar sesión</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-12 mb-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-2">Lotes y Propiedades en Venta</h1>
+      <p class="text-lg text-gray-600">Encuentra el lote o vivienda ideal para ti y contacta directamente con el propietario.</p>
+    </div>
+  </section>
+
+  <!-- Listado de lotes/propiedades -->
+  <main class="flex-1 max-w-6xl mx-auto px-4 pb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Propiedad 1 -->
+      <div class="card p-6 flex flex-col">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Lote 1" class="rounded-lg mb-4 h-48 object-cover">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Lote Urbano 120m²</h2>
+        <p class="text-gray-600 mb-2">Ubicación: Av. Principal 123, Lima</p>
+        <p class="text-gray-700 font-semibold mb-4">Precio: S/ 80,000</p>
+        <button onclick="openContactModal('Lote Urbano 120m²', 'S/ 80,000', 'Av. Principal 123, Lima')" class="btn-main mt-auto">Contactar al dueño</button>
+      </div>
+      <!-- Propiedad 2 -->
+      <div class="card p-6 flex flex-col">
+        <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?auto=format&fit=crop&w=400&q=80" alt="Lote 2" class="rounded-lg mb-4 h-48 object-cover">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Casa Familiar 3 Dorm.</h2>
+        <p class="text-gray-600 mb-2">Ubicación: Calle Los Olivos 456, Arequipa</p>
+        <p class="text-gray-700 font-semibold mb-4">Precio: S/ 250,000</p>
+        <button onclick="openContactModal('Casa Familiar 3 Dorm.', 'S/ 250,000', 'Calle Los Olivos 456, Arequipa')" class="btn-main mt-auto">Contactar al dueño</button>
+      </div>
+      <!-- Propiedad 3 -->
+      <div class="card p-6 flex flex-col">
+        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=400&q=80" alt="Lote 3" class="rounded-lg mb-4 h-48 object-cover">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Departamento Moderno</h2>
+        <p class="text-gray-600 mb-2">Ubicación: Jr. Las Flores 789, Cusco</p>
+        <p class="text-gray-700 font-semibold mb-4">Precio: S/ 180,000</p>
+        <button onclick="openContactModal('Departamento Moderno', 'S/ 180,000', 'Jr. Las Flores 789, Cusco')" class="btn-main mt-auto">Contactar al dueño</button>
+      </div>
+      <!-- Puedes agregar más propiedades aquí -->
+    </div>
+  </main>
+
+  <!-- Modal de contacto -->
+  <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+      <button onclick="closeContactModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Contactar al dueño</h2>
+      <div class="mb-4 text-gray-700">
+        <div id="modalPropTitle" class="font-semibold"></div>
+        <div id="modalPropPrice"></div>
+        <div id="modalPropLocation" class="mb-2"></div>
+      </div>
+      <form>
+        <input type="text" placeholder="Tu nombre" class="w-full border rounded px-3 py-2 mb-3" required>
+        <input type="email" placeholder="Tu correo" class="w-full border rounded px-3 py-2 mb-3" required>
+        <textarea placeholder="Mensaje" class="w-full border rounded px-3 py-2 mb-3" rows="3" required>Hola, estoy interesado en esta propiedad. ¿Podría brindarme más información?</textarea>
+        <button type="submit" class="btn-main w-full">Enviar mensaje</button>
+      </form>
+      <div class="text-xs text-gray-400 mt-3">El dueño recibirá tu mensaje y se pondrá en contacto contigo.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="text-lg">&copy; 2025 Inmobiliaria. Todos los derechos reservados.</p>
+      <p class="text-sm mt-2">Cel. 991696744</p>
+    </div>
+  </footer>
+
+  <script>
+    function openContactModal(title, price, location) {
+      document.getElementById('modalPropTitle').textContent = title;
+      document.getElementById('modalPropPrice').textContent = price;
+      document.getElementById('modalPropLocation').textContent = location;
+      document.getElementById('contactModal').classList.remove('hidden');
+    }
+    function closeContactModal() {
+      document.getElementById('contactModal').classList.add('hidden');
+    }
+    // Cierra el modal al hacer click fuera del contenido
+    window.onclick = function(e) {
+      const modal = document.getElementById('contactModal');
+      if (e.target === modal) closeContactModal();
+    }
+  </script>
+</body>
+</html>
