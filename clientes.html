@@ -28,23 +28,27 @@
 <body class="bg-gray-100 min-h-screen">
 
   <!-- Navbar superior -->
-  <header class="bg-white shadow-sm">
+  <header class="bg-white shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <img src="img/logo.ico" class="w-8 h-8" alt="Logo">
+      <a href="index.html" class="flex items-center space-x-2">
+        <img src="img/logo.ico" class="w-8 h-8" alt="Logo Inmobiliaria">
         <span class="font-bold text-2xl text-gray-800">Inmobiliaria</span>
-      </div>
+      </a>
       <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
-        <a href="index.html" class="hover:text-gray-900">Inicio</a>
-        <a href="#" class="hover:text-gray-900">Nosotros</a>
-        <a href="vistapublica.html" class="hover:text-gray-900">Propiedades</a>
-        <a href="#" class="hover:text-gray-900">Contacto</a>
-        <a href="clientes.html" class="hover:text-gray-900">Clientes</a>
-        <a href="departamentos.html" class="hover:text-gray-900">Departamentos</a>
-        <a href="cotizaciones.html" class="hover:text-gray-900">Cotizaciones</a>
-        <a href="reservas.html" class="hover:text-gray-900">Reservas</a>
-        <a href="ventas.html" class="hover:text-gray-900">Ventas</a>
-        <a href="reportes.html" class="hover:text-gray-900">Reportes</a>
+        <a href="index.html" class="hover:text-blue-700">Inicio</a>
+        <a href="vistapublica.html" class="hover:text-blue-700">Propiedades</a>
+        <a href="#" class="hover:text-blue-700">Contacto</a>
+        <div class="menu-mas relative">
+          <a href="#" class="hover:text-blue-700 flex items-center">Más <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+          <div class="submenu absolute bg-white rounded shadow-lg mt-2 hidden">
+            <a href="clientes.html">Clientes</a>
+            <a href="departamentos.html">Departamentos</a>
+            <a href="cotizaciones.html">Cotizaciones</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="ventas.html">Ventas</a>
+            <a href="reportes.html">Reportes</a>
+          </div>
+        </div>
       </nav>
       <div class="flex space-x-4">
         <a href="#" class="btn-outline">Regístrate</a>
@@ -86,29 +90,17 @@
       <h2 class="text-2xl font-bold mb-4">Listado de Clientes</h2>
       <div class="overflow-x-auto">
         <table class="min-w-full bg-white rounded-lg">
-          <thead class="bg-gray-200 text-gray-600 uppercase text-sm">
+          <thead>
             <tr>
-              <th class="py-3 px-4 text-left">#</th>
-              <th class="py-3 px-4 text-left">Nombre</th>
-              <th class="py-3 px-4 text-left">Correo</th>
-              <th class="py-3 px-4 text-left">Teléfono</th>
-              <th class="py-3 px-4 text-left">Estado</th>
-              <th class="py-3 px-4 text-left">Acciones</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Teléfono</th>
+              <th>Estado</th>
+              <th>Acciones</th>
             </tr>
           </thead>
-          <tbody id="clientesBody" class="text-gray-700">
-            <tr>
-              <td class="py-3 px-4">1</td>
-              <td class="py-3 px-4">Juan Pérez</td>
-              <td class="py-3 px-4">juanperez@email.com</td>
-              <td class="py-3 px-4">987654321</td>
-              <td class="py-3 px-4"><span class="inline-block px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Activo</span></td>
-              <td class="py-3 px-4 flex gap-2">
-                <button class="editar-cliente bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition">Editar</button>
-                <button class="eliminar-cliente bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">Eliminar</button>
-              </td>
-            </tr>
-            <!-- Más filas ejemplo -->
+          <tbody id="tablaClientes">
+            <!-- Aquí se llenarán dinámicamente los clientes -->
           </tbody>
         </table>
       </div>
@@ -147,12 +139,98 @@
   </div>
 
   <script>
+    // URL base de tu API Laravel
+    const API_URL = 'http://localhost:8000/api/clientes';
+
+    // Cargar clientes al iniciar
+    async function cargarClientes() {
+      const res = await fetch(API_URL);
+      const clientes = await res.json();
+      tablaClientes.innerHTML = '';
+      clientes.forEach((c, idx) => {
+        let estadoBadge = c.estado === 'Activo'
+          ? '<span class="inline-block px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Activo</span>'
+          : '<span class="inline-block px-2 py-1 rounded bg-gray-200 text-gray-700 text-xs">Inactivo</span>';
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="py-3 px-4">${c.nombre}</td>
+          <td class="py-3 px-4">${c.correo}</td>
+          <td class="py-3 px-4">${c.telefono}</td>
+          <td class="py-3 px-4">${estadoBadge}</td>
+          <td class="py-3 px-4 flex gap-2">
+            <button class="editar-cliente bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition" data-id="${c.id}">Editar</button>
+            <button class="eliminar-cliente bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition" data-id="${c.id}">Eliminar</button>
+          </td>
+        `;
+        tablaClientes.appendChild(row);
+      });
+    }
+
+    // Crear o actualizar cliente
+    formCliente.onsubmit = async function(e) {
+      e.preventDefault();
+      const id = document.getElementById('clienteId').value;
+      const data = {
+        nombre: formCliente.nombreCliente.value.trim(),
+        correo: formCliente.correoCliente.value.trim(),
+        telefono: formCliente.telefonoCliente.value.trim(),
+        estado: formCliente.estadoCliente.value.trim()
+      };
+      let res;
+      if (editandoCliente && id) {
+        res = await fetch(`${API_URL}/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } else {
+        res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      }
+      if (res.ok) {
+        await cargarClientes();
+        modalCliente.classList.add('hidden');
+        modalCliente.classList.remove('flex');
+        formCliente.reset();
+      } else {
+        alert('Error al guardar el cliente');
+      }
+    };
+
+    // Delegación de eventos para editar/eliminar
+    tablaClientes.onclick = async function(e) {
+      if (e.target.classList.contains('editar-cliente')) {
+        const id = e.target.dataset.id;
+        const res = await fetch(`${API_URL}/${id}`);
+        const c = await res.json();
+        editandoCliente = true;
+        document.getElementById('modalTituloCliente').textContent = 'Editar Cliente';
+        document.getElementById('clienteId').value = c.id;
+        formCliente.nombreCliente.value = c.nombre;
+        formCliente.correoCliente.value = c.correo;
+        formCliente.telefonoCliente.value = c.telefono;
+        formCliente.estadoCliente.value = c.estado;
+        modalCliente.classList.remove('hidden');
+        modalCliente.classList.add('flex');
+      }
+      if (e.target.classList.contains('eliminar-cliente')) {
+        if (confirm('¿Seguro que deseas eliminar este cliente?')) {
+          const id = e.target.dataset.id;
+          await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+          await cargarClientes();
+        }
+      }
+    };
+
     // Modal logic
     const modalCliente = document.getElementById('modalCliente');
     const btnNuevoCliente = document.getElementById('btnNuevoCliente');
     const cerrarModalCliente = document.getElementById('cerrarModalCliente');
     const formCliente = document.getElementById('formCliente');
-    const clientesBody = document.getElementById('clientesBody');
+    const tablaClientes = document.getElementById('tablaClientes');
     let editandoCliente = false;
     let editRowCliente = null;
 
@@ -177,69 +255,13 @@
       }
     };
 
-    // Agregar o editar cliente
-    formCliente.onsubmit = function(e) {
-      e.preventDefault();
-      const nombre = formCliente.nombreCliente.value.trim();
-      const correo = formCliente.correoCliente.value.trim();
-      const telefono = formCliente.telefonoCliente.value.trim();
-      const estado = formCliente.estadoCliente.value.trim();
-      if (!nombre || !correo || !telefono || !estado) return;
-
-      let estadoBadge = '';
-      if (estado === 'Activo') {
-        estadoBadge = '<span class="inline-block px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Activo</span>';
-      } else {
-        estadoBadge = '<span class="inline-block px-2 py-1 rounded bg-gray-200 text-gray-700 text-xs">Inactivo</span>';
-      }
-
-      if (editandoCliente && editRowCliente) {
-        editRowCliente.children[1].textContent = nombre;
-        editRowCliente.children[2].textContent = correo;
-        editRowCliente.children[3].textContent = telefono;
-        editRowCliente.children[4].innerHTML = estadoBadge;
-      } else {
-        const id = clientesBody.children.length + 1;
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td class="py-3 px-4">${id}</td>
-          <td class="py-3 px-4">${nombre}</td>
-          <td class="py-3 px-4">${correo}</td>
-          <td class="py-3 px-4">${telefono}</td>
-          <td class="py-3 px-4">${estadoBadge}</td>
-          <td class="py-3 px-4 flex gap-2">
-            <button class="editar-cliente bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition">Editar</button>
-            <button class="eliminar-cliente bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">Eliminar</button>
-          </td>
-        `;
-        clientesBody.appendChild(row);
-      }
-      modalCliente.classList.add('hidden');
-      modalCliente.classList.remove('flex');
-      formCliente.reset();
-    };
-
-    // Delegación de eventos para editar/eliminar
-    clientesBody.onclick = function(e) {
-      if (e.target.classList.contains('editar-cliente')) {
-        editandoCliente = true;
-        editRowCliente = e.target.closest('tr');
-        document.getElementById('modalTituloCliente').textContent = 'Editar Cliente';
-        document.getElementById('clienteId').value = editRowCliente.children[0].textContent;
-        formCliente.nombreCliente.value = editRowCliente.children[1].textContent;
-        formCliente.correoCliente.value = editRowCliente.children[2].textContent;
-        formCliente.telefonoCliente.value = editRowCliente.children[3].textContent;
-        formCliente.estadoCliente.value = editRowCliente.children[4].textContent.trim();
-        modalCliente.classList.remove('hidden');
-        modalCliente.classList.add('flex');
-      }
-      if (e.target.classList.contains('eliminar-cliente')) {
-        if (confirm('¿Seguro que deseas eliminar este cliente?')) {
-          e.target.closest('tr').remove();
-        }
-      }
-    };
+    // Cargar clientes al cargar la página
+    window.onload = cargarClientes;
   </script>
   <script src="https://kit.fontawesome.com/4b8b59b5b6.js" crossorigin="anonymous"></script>
+
+  <footer class="bg-white border-t mt-12 py-6 text-center text-gray-500 text-sm">
+    &copy; 2025 Inmobiliaria. Todos los derechos reservados.
+  </footer>
 </body>
 </html>

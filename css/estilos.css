@@ -3,84 +3,91 @@ body {
     background: #f4f4f5;
   }
   
-  /* Tarjetas con efecto */
+  /* Navbar y navegación */
+  header {
+    box-shadow: 0 2px 8px 0 rgba(60,60,60,0.06);
+  }
+  nav a {
+    transition: color 0.2s, border-bottom 0.2s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+  }
+  nav a:hover, nav a.active-link {
+    color: #2563eb !important;
+    border-bottom: 2px solid #2563eb;
+  }
+  
+  /* Tarjetas visuales */
   .card {
-    background: #f9fafb;
+    background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 1rem;
     box-shadow: 0 2px 8px 0 rgba(60,60,60,0.06);
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, transform 0.2s;
+    overflow: hidden;
   }
   .card:hover {
     box-shadow: 0 8px 32px 0 rgba(60,60,60,0.12);
+    transform: translateY(-4px) scale(1.02);
   }
   
-  /* Enlace activo en menú lateral */
-  .active-link {
-    color: #2563eb !important;
-    font-weight: bold !important;
-  }
-  
-  /* Modal fondo */
-  .modal-bg {
-    background: rgba(0,0,0,0.5);
-  }
-  
-  /* Animación de aparición */
-  .fade-in {
-    animation: fadeIn 0.2s;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  /* Botón principal */
-  .btn-primary {
-    background-color: #2563eb;
-    color: #fff;
-    border-radius: 0.375rem;
-    padding: 0.5rem 1.5rem;
-    font-weight: 600;
-    transition: background 0.2s;
-  }
-  .btn-primary:hover {
-    background-color: #1d4ed8;
-  }
-  
-  /* Botón secundario */
-  .btn-main {
-    background: #374151;
-    color: #fff;
+  /* Botones */
+  .btn-main, .btn-outline, .btn-primary {
+    font-size: 1rem;
     font-weight: 600;
     border-radius: 0.5rem;
     padding: 0.75rem 2rem;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px 0 rgba(60,60,60,0.04);
+  }
+  .btn-main {
+    background: #2563eb;
+    color: #fff;
   }
   .btn-main:hover {
-    background: #111827;
+    background: #1d4ed8;
   }
-  
-  /* Botón outline */
   .btn-outline {
     background: #fff;
-    color: #374151;
-    border: 1px solid #374151;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    padding: 0.75rem 2rem;
-    transition: background 0.2s, color 0.2s;
+    color: #2563eb;
+    border: 1.5px solid #2563eb;
   }
   .btn-outline:hover {
-    background: #374151;
+    background: #2563eb;
     color: #fff;
   }
   
-  /* Input focus */
-  input:focus, select:focus {
+  /* Inputs y formularios */
+  input, select, textarea {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  input:focus, select:focus, textarea:focus {
     outline: none;
     box-shadow: 0 0 0 2px #2563eb33;
     border-color: #2563eb;
+  }
+  
+  /* Tablas */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+  }
+  th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+  }
+  th {
+    background: #f3f4f6;
+    font-weight: 700;
+  }
+  tr:hover {
+    background: #f1f5f9;
   }
   
   /* Badge de estado */
@@ -102,4 +109,67 @@ body {
   .badge-vendido {
     background: #fecaca;
     color: #991b1b;
+  }
+  
+  /* Animaciones y efectos */
+  .fade-in {
+    animation: fadeIn 0.3s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Submenú desplegable */
+.menu-mas {
+  position: relative;
+}
+.menu-mas .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 16px 0 rgba(60,60,60,0.10);
+  z-index: 100;
+  padding: 0.5rem 0;
+  animation: fadeIn 0.2s;
+}
+.menu-mas:hover .submenu,
+.menu-mas:focus-within .submenu {
+  display: block;
+}
+.submenu a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #374151;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.submenu a:hover {
+  background: #f3f4f6;
+  color: #2563eb;
+}
+
+@media (max-width: 900px) {
+  .submenu {
+    position: static;
+    min-width: 100%;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+/* Responsive */
+  @media (max-width: 768px) {
+    nav {
+      display: none;
+    }
+    .mobile-nav {
+      display: flex !important;
+    }
   }

@@ -11,23 +11,27 @@
 <body class="bg-gray-100 min-h-screen">
 
   <!-- Navbar superior -->
-  <header class="bg-white shadow-sm">
+  <header class="bg-white shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <img src="img/logo.ico" class="w-8 h-8" alt="Logo">
+      <a href="index.html" class="flex items-center space-x-2">
+        <img src="img/logo.ico" class="w-8 h-8" alt="Logo Inmobiliaria">
         <span class="font-bold text-2xl text-gray-800">Inmobiliaria</span>
-      </div>
+      </a>
       <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
-        <a href="index.html" class="hover:text-gray-900">Inicio</a>
-        <a href="#" class="hover:text-gray-900">Nosotros</a>
-        <a href="vistapublica.html" class="hover:text-gray-900">Propiedades</a>
-        <a href="#" class="hover:text-gray-900">Contacto</a>
-        <a href="clientes.html" class="hover:text-gray-900">Clientes</a>
-        <a href="departamentos.html" class="hover:text-gray-900">Departamentos</a>
-        <a href="cotizaciones.html" class="hover:text-gray-900">Cotizaciones</a>
-        <a href="reservas.html" class="hover:text-gray-900">Reservas</a>
-        <a href="ventas.html" class="hover:text-gray-900">Ventas</a>
-        <a href="reportes.html" class="hover:text-gray-900">Reportes</a>
+        <a href="index.html" class="hover:text-blue-700">Inicio</a>
+        <a href="vistapublica.html" class="hover:text-blue-700">Propiedades</a>
+        <a href="#" class="hover:text-blue-700">Contacto</a>
+        <div class="menu-mas relative">
+          <a href="#" class="hover:text-blue-700 flex items-center">Más <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+          <div class="submenu absolute bg-white rounded shadow-lg mt-2 hidden">
+            <a href="clientes.html">Clientes</a>
+            <a href="departamentos.html">Departamentos</a>
+            <a href="cotizaciones.html">Cotizaciones</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="ventas.html">Ventas</a>
+            <a href="reportes.html">Reportes</a>
+          </div>
+        </div>
       </nav>
       <div class="flex space-x-4">
         <a href="#" class="btn-outline">Regístrate</a>
@@ -41,22 +45,15 @@
     <h1 class="text-2xl font-bold text-gray-800 mb-8">Reportes y Estadísticas</h1>
     <section class="bg-white p-6 rounded-xl shadow">
       <h2 class="text-xl font-bold mb-4">Resumen de Actividad</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-100 p-6 rounded-lg text-center">
-          <div class="text-3xl font-bold text-blue-700 mb-2">120</div>
-          <div class="text-gray-700">Clientes</div>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg text-center">
-          <div class="text-3xl font-bold text-green-700 mb-2">35</div>
-          <div class="text-gray-700">Ventas</div>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg text-center">
-          <div class="text-3xl font-bold text-yellow-600 mb-2">8</div>
-          <div class="text-gray-700">Reservas</div>
-        </div>
+      <div id="resumenActividad" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Tarjetas de resumen dinámicas -->
       </div>
     </section>
     <!-- Puedes agregar más secciones de gráficos o tablas aquí -->
   </main>
+
+  <footer class="bg-white border-t mt-12 py-6 text-center text-gray-500 text-sm">
+    &copy; 2025 Inmobiliaria. Todos los derechos reservados.
+  </footer>
 </body>
 </html>

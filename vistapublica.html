@@ -27,13 +27,32 @@
 <body class="min-h-screen flex flex-col">
 
   <!-- Header -->
-  <header class="bg-white shadow-sm">
+  <header class="bg-white shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="flex items-center space-x-2">
-        <img src="img/logo.ico" class="w-8 h-8" alt="Logo">
+        <img src="img/logo.ico" class="w-8 h-8" alt="Logo Inmobiliaria">
         <span class="font-bold text-2xl text-gray-800">Inmobiliaria</span>
       </a>
-      <a href="login.html" class="btn-main">Iniciar sesión</a>
+      <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <a href="index.html" class="hover:text-blue-700">Inicio</a>
+        <a href="vistapublica.html" class="hover:text-blue-700">Propiedades</a>
+        <a href="#" class="hover:text-blue-700">Contacto</a>
+        <div class="menu-mas relative">
+          <a href="#" class="hover:text-blue-700 flex items-center">Más <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+          <div class="submenu absolute bg-white rounded shadow-lg mt-2 hidden">
+            <a href="clientes.html">Clientes</a>
+            <a href="departamentos.html">Departamentos</a>
+            <a href="cotizaciones.html">Cotizaciones</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="ventas.html">Ventas</a>
+            <a href="reportes.html">Reportes</a>
+          </div>
+        </div>
+      </nav>
+      <div class="flex space-x-4">
+        <a href="#" class="btn-outline">Regístrate</a>
+        <a href="login.html" class="btn-main">Iniciar sesión</a>
+      </div>
     </div>
   </header>
 
@@ -47,32 +66,8 @@
 
   <!-- Listado de lotes/propiedades -->
   <main class="flex-1 max-w-6xl mx-auto px-4 pb-12">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Propiedad 1 -->
-      <div class="card p-6 flex flex-col">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Lote 1" class="rounded-lg mb-4 h-48 object-cover">
-        <h2 class="text-xl font-bold text-gray-800 mb-2">Lote Urbano 120m²</h2>
-        <p class="text-gray-600 mb-2">Ubicación: Av. Principal 123, Lima</p>
-        <p class="text-gray-700 font-semibold mb-4">Precio: S/ 80,000</p>
-        <button onclick="openContactModal('Lote Urbano 120m²', 'S/ 80,000', 'Av. Principal 123, Lima')" class="btn-main mt-auto">Contactar al dueño</button>
-      </div>
-      <!-- Propiedad 2 -->
-      <div class="card p-6 flex flex-col">
-        <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?auto=format&fit=crop&w=400&q=80" alt="Lote 2" class="rounded-lg mb-4 h-48 object-cover">
-        <h2 class="text-xl font-bold text-gray-800 mb-2">Casa Familiar 3 Dorm.</h2>
-        <p class="text-gray-600 mb-2">Ubicación: Calle Los Olivos 456, Arequipa</p>
-        <p class="text-gray-700 font-semibold mb-4">Precio: S/ 250,000</p>
-        <button onclick="openContactModal('Casa Familiar 3 Dorm.', 'S/ 250,000', 'Calle Los Olivos 456, Arequipa')" class="btn-main mt-auto">Contactar al dueño</button>
-      </div>
-      <!-- Propiedad 3 -->
-      <div class="card p-6 flex flex-col">
-        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=400&q=80" alt="Lote 3" class="rounded-lg mb-4 h-48 object-cover">
-        <h2 class="text-xl font-bold text-gray-800 mb-2">Departamento Moderno</h2>
-        <p class="text-gray-600 mb-2">Ubicación: Jr. Las Flores 789, Cusco</p>
-        <p class="text-gray-700 font-semibold mb-4">Precio: S/ 180,000</p>
-        <button onclick="openContactModal('Departamento Moderno', 'S/ 180,000', 'Jr. Las Flores 789, Cusco')" class="btn-main mt-auto">Contactar al dueño</button>
-      </div>
-      <!-- Puedes agregar más propiedades aquí -->
+    <div id="contenedorPropiedades" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Aquí se llenarán dinámicamente las propiedades/lotes -->
     </div>
   </main>
 
@@ -97,11 +92,8 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <p class="text-lg">&copy; 2025 Inmobiliaria. Todos los derechos reservados.</p>
-      <p class="text-sm mt-2">Cel. 991696744</p>
-    </div>
+  <footer class="bg-white border-t mt-12 py-6 text-center text-gray-500 text-sm">
+    &copy; 2025 Inmobiliaria. Todos los derechos reservados.
   </footer>
 
   <script>
