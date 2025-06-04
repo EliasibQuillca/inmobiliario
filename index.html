@@ -39,60 +39,306 @@
       </div>
     </div>
   </header>
-
   <!-- Hero -->
-  <section class="hero-bg py-20">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-      <div class="md:w-1/2 mb-8 md:mb-0">
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight text-gray-800 mb-4">
-          ¿Quieres comprar o vender tu propiedad?
-        </h1>
-        <p class="mt-2 text-lg text-gray-700 mb-6">
-          Gestiona tus inmuebles, clientes y ventas de forma moderna y sencilla. <br>
-          <span class="text-gray-900 font-semibold">¡Haz crecer tu patrimonio con nosotros!</span>
-        </p>
-        <a href="login.html" class="btn-main mr-3">Iniciar sesión</a>
-        <a href="dashboard.html" class="btn-outline">Ver Demo</a>
+  <section class="relative bg-gradient-to-r from-blue-900 to-blue-700 py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-pattern opacity-10"></div>
+    <div class="max-w-7xl mx-auto px-4 relative">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="md:w-1/2 text-center md:text-left">
+          <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+            Encuentra tu hogar ideal
+          </h1>
+          <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+            Descubre las mejores propiedades en las zonas más exclusivas. 
+            Tu próximo hogar está a solo un clic de distancia.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="vistapublica.html" class="btn-main bg-white text-blue-700 hover:bg-blue-50">
+              <i class="fas fa-search mr-2"></i> Buscar Propiedades
+            </a>
+            <a href="login.html" class="btn-outline text-white border-white hover:bg-white/10">
+              <i class="fas fa-user mr-2"></i> Área de Clientes
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 relative">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&q=80" 
+                 alt="Luxury Home" 
+                 class="w-full object-cover h-[500px]">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <span class="badge badge-nuevo mb-2">Destacado</span>
+              <h3 class="text-2xl font-bold mb-2">Residencial Las Palmeras</h3>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-map-marker-alt"></i> 
+                Miraflores, Lima
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="md:w-1/2 flex justify-center">
-        <img src="https://descubrelima.pe/wp-content/uploads/2023/01/inmobiliarias-peru.jpg" alt="Preview app" class="rounded-xl shadow-xl max-w-md">
+    </div>
+  </section>
+  <!-- Características -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">¿Por qué elegirnos?</h2>
+        <p class="text-lg text-gray-600">Ofrecemos un servicio integral y profesional para que encuentres la propiedad perfecta o vendas la tuya al mejor precio.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="card p-8 text-center hover:-translate-y-2 transition-all duration-300">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-home text-3xl text-blue-600"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Amplio Catálogo</h3>
+          <p class="text-gray-600">Las mejores propiedades seleccionadas y verificadas por nuestro equipo de expertos.</p>
+        </div>
+
+        <div class="card p-8 text-center hover:-translate-y-2 transition-all duration-300">
+          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-chart-line text-3xl text-green-600"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Inversión Segura</h3>
+          <p class="text-gray-600">Asesoramiento profesional para maximizar el retorno de tu inversión inmobiliaria.</p>
+        </div>
+
+        <div class="card p-8 text-center hover:-translate-y-2 transition-all duration-300">
+          <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-handshake text-3xl text-yellow-600"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Proceso Simple</h3>
+          <p class="text-gray-600">Acompañamiento en todo el proceso de compra o venta de tu propiedad.</p>
+        </div>
+
+        <div class="card p-8 text-center hover:-translate-y-2 transition-all duration-300">
+          <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-users text-3xl text-purple-600"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Atención 24/7</h3>
+          <p class="text-gray-600">Equipo de asesores disponible para atender todas tus consultas en cualquier momento.</p>
+        </div>
+      </div>
+
+      <!-- Estadísticas -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="p-6">
+          <div class="text-4xl font-bold text-blue-600 mb-2">1,500+</div>
+          <p class="text-gray-600">Propiedades Vendidas</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl font-bold text-blue-600 mb-2">98%</div>
+          <p class="text-gray-600">Clientes Satisfechos</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
+          <p class="text-gray-600">Años de Experiencia</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+          <p class="text-gray-600">Soporte Disponible</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Funcionalidades -->
-  <section class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-10">¿Qué puedes hacer?</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-gray-700">
-        <div class="card p-6 rounded-lg shadow hover:shadow-lg transition">
-          <i class="fas fa-home text-3xl text-gray-600 mb-4"></i>
-          <h3 class="font-bold mb-2">Publica propiedades</h3>
-          <p>Agrega y muestra tus inmuebles de manera profesional.</p>
+  <!-- Propiedades Destacadas -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Propiedades Destacadas</h2>
+        <p class="text-lg text-gray-600">Descubre nuestras mejores propiedades seleccionadas especialmente para ti</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Propiedad 1 -->
+        <div class="property-card">
+          <div class="property-card__image">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&q=80" 
+                 alt="Casa Moderna">
+            <span class="property-card__status badge badge-nuevo">Nuevo</span>
+          </div>
+          <div class="property-card__content">
+            <h3 class="property-card__title">Casa Moderna en San Isidro</h3>
+            <div class="property-card__location">
+              <i class="fas fa-map-marker-alt"></i>
+              San Isidro, Lima
+            </div>
+            <div class="property-card__price">$450,000</div>
+            <div class="property-card__features">
+              <div class="property-card__feature">
+                <i class="fas fa-bed"></i>
+                4 Dormitorios
+              </div>
+              <div class="property-card__feature">
+                <i class="fas fa-bath"></i>
+                3 Baños
+              </div>
+              <div class="property-card__feature">
+                <i class="fas fa-vector-square"></i>
+                280 m²
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card p-6 rounded-lg shadow hover:shadow-lg transition">
-          <i class="fas fa-users text-3xl text-gray-600 mb-4"></i>
-          <h3 class="font-bold mb-2">Gestiona clientes</h3>
-          <p>Administra tus contactos y haz seguimiento a tus prospectos.</p>
+
+        <!-- Propiedad 2 -->
+        <div class="property-card">
+          <div class="property-card__image">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&q=80" 
+                 alt="Apartamento de Lujo">
+            <span class="property-card__status badge badge-disponible">Disponible</span>
+          </div>
+          <div class="property-card__content">
+            <h3 class="property-card__title">Apartamento de Lujo en Miraflores</h3>
+            <div class="property-card__location">
+              <i class="fas fa-map-marker-alt"></i>
+              Miraflores, Lima
+            </div>
+            <div class="property-card__price">$320,000</div>
+            <div class="property-card__features">
+              <div class="property-card__feature">
+                <i class="fas fa-bed"></i>
+                3 Dormitorios
+              </div>
+              <div class="property-card__feature">
+                <i class="fas fa-bath"></i>
+                2 Baños
+              </div>
+              <div class="property-card__feature">
+                <i class="fas fa-vector-square"></i>
+                150 m²
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card p-6 rounded-lg shadow hover:shadow-lg transition">
-          <i class="fas fa-chart-line text-3xl text-gray-600 mb-4"></i>
-          <h3 class="font-bold mb-2">Visualiza reportes</h3>
-          <p>Consulta estadísticas y el estado de tus ventas en tiempo real.</p>
+
+        <!-- Propiedad 3 -->
+        <div class="property-card">
+          <div class="property-card__image">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&q=80" 
+                 alt="Casa Familiar">
+            <span class="property-card__status badge badge-reservado">Reservado</span>
+          </div>
+          <div class="property-card__content">
+            <h3 class="property-card__title">Casa Familiar en La Molina</h3>
+            <div class="property-card__location">
+              <i class="fas fa-map-marker-alt"></i>
+              La Molina, Lima
+            </div>
+            <div class="property-card__price">$380,000</div>
+            <div class="property-card__features">
+              <div class="property-card__feature">
+                <i class="fas fa-bed"></i>
+                5 Dormitorios
+              </div>
+              <div class="property-card__feature">
+                <i class="fas fa-bath"></i>
+                3 Baños
+              </div>
+              <div class="property-card__feature">
+                <i class="fas fa-vector-square"></i>
+                320 m²
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card p-6 rounded-lg shadow hover:shadow-lg transition">
-          <i class="fas fa-handshake text-3xl text-gray-600 mb-4"></i>
-          <h3 class="font-bold mb-2">Cierra negocios</h3>
-          <p>Facilita el proceso de compra y venta con herramientas integradas.</p>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="vistapublica.html" class="btn-main inline-flex items-center">
+          Ver todas las propiedades
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto CTA -->
+  <section class="py-20 bg-blue-700 relative overflow-hidden">
+    <div class="absolute inset-0 bg-pattern opacity-10"></div>
+    <div class="max-w-7xl mx-auto px-4 relative">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold text-white mb-6">¿Listo para encontrar tu próximo hogar?</h2>
+        <p class="text-xl text-blue-100 mb-8">Nuestros asesores están listos para ayudarte a encontrar la propiedad perfecta</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="vistapublica.html" class="btn-main bg-white text-blue-700 hover:bg-blue-50">
+            <i class="fas fa-search mr-2"></i> Buscar Propiedades
+          </a>
+          <a href="#contacto" class="btn-outline text-white border-white hover:bg-white/10">
+            <i class="fas fa-phone mr-2"></i> Contactar Asesor
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white border-t mt-12 py-6 text-center text-gray-500 text-sm">
-    &copy; 2025 Inmobiliaria. Todos los derechos reservados.
+  <footer class="bg-gray-900 text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div>
+          <div class="flex items-center mb-6">
+            <img src="img/logo.ico" class="w-8 h-8 mr-3" alt="Logo Inmobiliaria">
+            <span class="font-bold text-2xl text-white">Inmobiliaria</span>
+          </div>
+          <p class="text-gray-400 mb-6">Tu socio de confianza en el mercado inmobiliario. Encuentra la propiedad de tus sueños con nosotros.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h3>
+          <ul class="space-y-4">
+            <li><a href="vistapublica.html" class="hover:text-white">Propiedades</a></li>
+            <li><a href="clientes.html" class="hover:text-white">Área de Clientes</a></li>
+            <li><a href="#" class="hover:text-white">Sobre Nosotros</a></li>
+            <li><a href="#" class="hover:text-white">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-bold text-lg mb-6">Servicios</h3>
+          <ul class="space-y-4">
+            <li><a href="#" class="hover:text-white">Comprar Propiedad</a></li>
+            <li><a href="#" class="hover:text-white">Vender Propiedad</a></li>
+            <li><a href="#" class="hover:text-white">Alquilar</a></li>
+            <li><a href="#" class="hover:text-white">Tasaciones</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-bold text-lg mb-6">Contacto</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1.5 mr-3"></i>
+              <span>Av. Principal 123, Miraflores, Lima</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-3"></i>
+              <span>+51 123 456 789</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3"></i>
+              <span>info@inmobiliaria.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+        <p>&copy; 2025 Inmobiliaria. Todos los derechos reservados.</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/4b8b59b5b6.js" crossorigin="anonymous"></script>
 </body>
 </html>
